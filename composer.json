@@ -1,0 +1,24 @@
+{
+    "repositories": [{
+        "type": "vcs",
+        "url": "git@bitbucket.org:mctekk/baka-phalconphp-hmac.git"
+    }, {
+        "type": "vcs",
+        "url": "git@bitbucket.org:mctekk/http.git"
+    }, {
+        "type": "vcs",
+        "url": "git@bitbucket.org:mctekk/database.git"
+    }],
+    "require": {
+        "phalcon/incubator": "3.0.x-dev",
+        "ezyang/htmlpurifier": "dev-master",
+        "nesbot/carbon": "~1.21",
+        "guzzlehttp/guzzle": "~6.0",
+        "league/flysystem": "1.1.*@dev",
+        "vlucas/phpdotenv": "^2.2",
+        "monolog/monolog": "~1.21",
+        "baka/phalconphp-hmac": "dev-master",
+        "baka/http": "dev-master",
+        "baka/database": "dev-master"
+    }
+}
