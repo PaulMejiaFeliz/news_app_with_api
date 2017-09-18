@@ -27,7 +27,6 @@ $router->post('/news', [
     'Newsapp\Controllers\NewsController',
     'addNews'
 ]);
-                
 
 $router->put('/news/{id}', [
     'Newsapp\Controllers\NewsController',
