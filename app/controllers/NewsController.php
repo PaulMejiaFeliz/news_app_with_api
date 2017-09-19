@@ -271,7 +271,16 @@ class NewsController extends BaseController
             throw new \Exception($errors);
         }
 
-        return $this->response(['Status' => 'ok']);
+        return $this->response([
+            "id" => $news->id,
+            "title" => $news->title,
+            "content" => $news->content,
+            "user_id" => $news->user_id,
+            "views" => $news->views,
+            "created_at" => $news->created_at,
+            "updated_at" => $news->updated_at,
+            'photos' => $news->photos->toArray()
+        ]);
     }
 
     /**
