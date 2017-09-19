@@ -45,7 +45,7 @@ $router->get('/news/{newsId}/comments', [
 
 $router->get('/comments/{id}', [
     'Newsapp\Controllers\CommentsController',
-    'getComment'
+    'getById'
 ]);
 
 $router->post('/comments', [

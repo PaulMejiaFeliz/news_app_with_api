@@ -69,7 +69,10 @@ class AccountController extends BaseController
     public function register(): Response
     {
         $user = new Users();
-        $user->assign($this->request->getPost());
+        $user->name = $this->request->getPost('name');
+        $user->lastName = $this->request->getPost('lastName');
+        $user->email = $this->request->getPost('email');
+        $user->password = $this->security->hash($this->request->getPost('password'));
 
         if (!$user->save()) {
             $errors = [];

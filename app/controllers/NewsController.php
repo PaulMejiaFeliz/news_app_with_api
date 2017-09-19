@@ -95,13 +95,11 @@ class NewsController extends BaseController
         $currentPage = $this->request->getQuery('page', 'int', 1);
         $limit = $this->request->getQuery('limit', 'int', 10);
 
-        $news =  News::find(
-            [
-                'conditions' => $conditions,
-                'bind' => $bind,
-                'order' => $order
-            ]
-        );
+        $news =  News::find([
+        	'conditions' => $conditions,
+        	'bind' => $bind,
+        	'order' => $order
+        ]);
 
         $paginator = new PaginatorModel(
             [
