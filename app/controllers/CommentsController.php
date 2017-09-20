@@ -152,7 +152,6 @@ class CommentsController extends BaseController
                     'message' => $error->getMessage()
                 ];
             }
-            //return $this->response(['status' => 'Error', 'Messages' => $errors]);
             throw new ValidationException($errors);
         }
 
@@ -181,10 +180,6 @@ class CommentsController extends BaseController
             throw new \Exception('Comment doesn\'t exist');
         }
 
-        // if ($comment->user_id != $this->userData['id']) {
-        //     throw new \Exception('You\'re not the owner of the post');
-        // }
-    
         $comment->content = $this->request->getPut('content', "string");
 
         if (!$comment->save()) {
@@ -195,7 +190,6 @@ class CommentsController extends BaseController
                     'message' => $error->getMessage()
                 ];
             }
-            // return $this->response(['status' => 'Error', 'Messages' => $errors]);
             throw new ValidationException($errors);
         }
 
@@ -224,10 +218,6 @@ class CommentsController extends BaseController
             throw new \Exception('Comment doesn\'t exist');
         }
 
-        // if ($comment->user_id != $this->userData['id']) {
-        //     throw new \Exception('You\'re not the owner of the post');
-        // }
-
         if (!$comment->softDelete()) {
             $errors = [];
             foreach ($comment->getMessages() as $error) {
@@ -237,7 +227,6 @@ class CommentsController extends BaseController
                 ];
                 throw new ValidationException($errors);
             }
-            //return $this->response(['status' => 'Error', 'Messages' => $errors]);
         }
         return $this->response(['Status' => 'ok']);
     }

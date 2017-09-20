@@ -12,6 +12,5 @@ class Photos extends \Baka\Database\Model
         $this->setSource('photos');
         
         $this->belongsTo('news_id', 'Newsapp\Models\News', 'id', ['alias' => 'news']);
-        
     }
 }

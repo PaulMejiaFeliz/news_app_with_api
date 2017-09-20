@@ -6,6 +6,7 @@ use Newsapp\Models\Photos;
 use Newsapp\ValidationException;
 use Phalcon\Http\Response;
 use Phalcon\Paginator\Adapter\Model as PaginatorModel;
+use Phalcon\Tag;
 
 /**
  * Class with news CRUD actions
@@ -96,9 +97,9 @@ class NewsController extends BaseController
         $limit = $this->request->getQuery('limit', 'int', 10);
 
         $news =  News::find([
-        	'conditions' => $conditions,
-        	'bind' => $bind,
-        	'order' => $order
+            'conditions' => $conditions,
+            'bind' => $bind,
+            'order' => $order
         ]);
 
         $paginator = new PaginatorModel(
@@ -221,7 +222,6 @@ class NewsController extends BaseController
                     'message' => $error->getMessage()
                 ];
             }
-            //return $this->response(['status' => 'Error', 'Messages' => $errors]);
             throw new ValidationException($errors);
         }
 
@@ -250,10 +250,6 @@ class NewsController extends BaseController
             throw new \Exception('Post doesn\'t exist');
         }
 
-        // if ($news->user_id != $this->userData['id']) {
-        //     throw new \Exception('You\'re not the owner of the post');
-        // }
-    
         $news->title = $this->request->getPut('title');
         $news->content = $this->request->getPut('content');
 
@@ -265,7 +261,6 @@ class NewsController extends BaseController
                     'message' => $error->getMessage()
                 ];
             }
-           // return $this->response(['status' => 'Error', 'Messages' => $errors]);
             throw new \Exception($errors);
         }
 
@@ -303,10 +298,6 @@ class NewsController extends BaseController
             throw new \Exception('Post doesn\'t exist');
         }
 
-        // if ($news->user_id != $this->userData['id']) {
-        //     throw new \Exception('You\'re not the owner of the post');
-        // }
-
         if (!$news->softDelete()) {
             $errors = [];
             foreach ($news->getMessages() as $error) {
@@ -315,7 +306,6 @@ class NewsController extends BaseController
                     'message' => $error->getMessage()
                 ];
             }
-            //return $this->response(['status' => 'Error', 'Messages' => $errors]);
             throw new ValidationException($errors);
         }
         return $this->response(['Status' => 'ok']);

@@ -11,7 +11,7 @@ use Baka\Http\RouterCollection;
  */
 
 $router = new RouterCollection($application);
-$router->setPrefix('/api');
+$router->setPrefix('/v1');
 
 $router->get('/news', [
     'Newsapp\Controllers\NewsController',

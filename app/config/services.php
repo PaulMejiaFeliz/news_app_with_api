@@ -155,15 +155,6 @@ $di->set('purifier', function () use ($config) {
 });
 
 /**
- * UserData dependency injection for the system
- *
- * @return Session
- */
-$di->set('userData', function () use ($config) {
-
-});
-
-/**
  * service to get the CDN for the service. ¿why a service ? we can have multiple cdn we need a way to hand
  */
 $di->set('cdn', function () use ($config) {

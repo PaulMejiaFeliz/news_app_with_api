@@ -10,8 +10,7 @@ use Newsapp\ValidationException;
 use Newsapp\MediaTypeException;
 use Phalcon\Http\Response;
 
-try
-{
+try {
     define('APP_PATH', realpath('..'));
 
     header('Access-Control-Allow-Origin: *');
@@ -64,7 +63,6 @@ try
     }
 
     $application->handle();
-
 } catch (NewsappException $e) {
     $response = new Phalcon\Http\Response();
     $response->setStatusCode(200, "OK");

@@ -14,6 +14,5 @@ class Comments extends \Baka\Database\Model
         
         $this->belongsTo('user_id', 'Newsapp\Models\Users', 'id', ['alias' => 'users']);
         $this->belongsTo('news_id', 'Newsapp\Models\News', 'id', ['alias' => 'news']);
-        
     }
 }

@@ -11,7 +11,7 @@ use Phalcon\Http\Response;
 class AccountController extends BaseController
 {
     /**
-     * If the credentials are right, lets the user login
+     * If the credentials are right, retrieves the user data
      *
      * @method POST
      * @url /account/login
@@ -82,7 +82,6 @@ class AccountController extends BaseController
                     'message' => $error->getMessage()
                 ];
             }
-            //return $this->response(['status' => 'Error', 'Messages' => $errors]);
             throw new ValidationException($errors);
         }
 
