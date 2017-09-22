@@ -173,8 +173,8 @@ class NewsController extends BaseController
         return $this->response(
             [
                 "id" => $news->id,
-                "title" => $news->title,
-                "content" => $news->content,
+                "title" => $this->purifier->purify($news->title),
+                "content" => $this->purifier->purify($news->content),
                 "user_id" => $news->user_id,
                 'users' => [
                     'id' => $news->users->id,
