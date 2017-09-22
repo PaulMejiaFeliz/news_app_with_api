@@ -261,7 +261,7 @@ class NewsController extends BaseController
                     'message' => $error->getMessage()
                 ];
             }
-            throw new \Exception($errors);
+            throw new ValidationException($errors);
         }
 
         return $this->response([
